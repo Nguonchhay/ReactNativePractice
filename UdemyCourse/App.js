@@ -1,4 +1,11 @@
-import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
+import { 
+  StyleSheet, 
+  Text, 
+  View, 
+  Button, 
+  TextInput,
+  ScrollView
+} from 'react-native';
 import { useState } from 'react';
 
 export default App = () => {
@@ -25,13 +32,15 @@ export default App = () => {
         <Text>
           Goals:
         </Text>
-        <View>
+        <ScrollView alwaysBounceVertical={false}>
+          <View>
             {
               goals?.map((goalItem, key) => {
                 return <View style={styles.goalItem} key={key}><Text style={styles.goalItemText}>{goalItem}</Text></View>
               })
             }
           </View>
+        </ScrollView>
       </View>
     </View>
   );
