@@ -18,7 +18,13 @@ export default App = () => {
 
 
   const addGoalHandler = (inputGoal) => {
-    setGoals(currentGoals => [...currentGoals, { key: Math.random.toString(), text: inputGoal }]);
+    setGoals(currentGoals => [...currentGoals, { key: inputGoal.replace(/\s+/g, ''), text: inputGoal }]);
+  }
+
+  const deleteGoalHandler = (itemKey) => {
+    setGoals(
+      currentGoals => currentGoals.filter(goal => goal.key !== itemKey)
+    );
   }
 
   return (
@@ -34,7 +40,7 @@ export default App = () => {
           </Text>
           <FlatList 
             data={goals}
-            renderItem = { itemData => <GoalItem text={itemData.item.text} /> }
+            renderItem = { itemData => <GoalItem goal={itemData.item} onDeleteGoal={deleteGoalHandler} /> }
             alwaysBounceVertical={false}
           />
         </View>
