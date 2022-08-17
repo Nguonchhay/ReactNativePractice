@@ -1,10 +1,9 @@
 import { 
   StyleSheet, 
   Text, 
-  View, 
-  Button, 
-  TextInput,
-  FlatList
+  View,
+  FlatList,
+  Button
 } from 'react-native';
 import { useState } from 'react';
 
@@ -14,7 +13,7 @@ import GoalInput from './components/GoalInput';
 export default App = () => {
 
   const [goals, setGoals] = useState([]);
-
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
 
   const addGoalHandler = (inputGoal) => {
@@ -27,13 +26,22 @@ export default App = () => {
     );
   }
 
+  const addGoalInputHandler = () => {
+    setIsModalVisible(true);
+  }
+
   return (
     <View style={styles.appContainer}>
       
       <View style={styles.goalsContainer}>
-        <GoalInput
-          onAddGoal={addGoalHandler}
-        />
+        <View style={styles.goalInputContainer}>
+          <Button title="Add Goal" onPress={addGoalInputHandler} color="#ccc" />
+          <GoalInput
+            onAddGoal={addGoalHandler}
+            visible={isModalVisible}
+          />
+        </View>
+
         <View style={styles.goalsContainer}>
           <Text>
             Goals:
@@ -54,6 +62,9 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: 30,
     paddingHorizontal: 16,
+  },
+  goalInputContainer: {
+    marginTop: 15,
   },
   goalsContainer: {
     flex: 6,
