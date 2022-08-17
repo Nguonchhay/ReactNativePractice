@@ -26,8 +26,12 @@ export default App = () => {
     );
   }
 
-  const addGoalInputHandler = () => {
+  const openGoalInputHandler = () => {
     setIsModalVisible(true);
+  }
+
+  const closeGoalInputHandler = () => {
+    setIsModalVisible(false);
   }
 
   return (
@@ -35,9 +39,10 @@ export default App = () => {
       
       <View style={styles.goalsContainer}>
         <View style={styles.goalInputContainer}>
-          <Button title="Add Goal" onPress={addGoalInputHandler} color="#ccc" />
+          <Button title="Add Goal" onPress={openGoalInputHandler} color="#ccc" />
           <GoalInput
             onAddGoal={addGoalHandler}
+            onCloseModal={closeGoalInputHandler}
             visible={isModalVisible}
           />
         </View>
