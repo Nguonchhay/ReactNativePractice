@@ -1,6 +1,7 @@
 import { useState } from 'react'; 
 import {
   ImageBackground,
+  SafeAreaView,
   StyleSheet
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -23,7 +24,9 @@ const App = () => {
         imageStyle={{opacity: 0.4}}
         style={styles.rootScreen}
       >
-        {renderScreen}
+        <SafeAreaView style={styles.rootScreen}>
+          {renderScreen}
+        </SafeAreaView>
       </ImageBackground>  
     </LinearGradient>
   );
