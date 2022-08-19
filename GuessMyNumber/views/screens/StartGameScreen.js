@@ -7,7 +7,7 @@ import {
 } from "react-native";
 import PrimaryButton from "../../components/PrimaryButton";
 
-const StartGameScreen = () => {
+const StartGameScreen = ({ onSetScreen }) => {
     const [inputNumber, setInputNumber] = useState('');
 
     const onChangeInputNumber = (value) => {
@@ -23,7 +23,7 @@ const StartGameScreen = () => {
                 }
             ]);
         } else {
-
+            onSetScreen('game');
         }
     }
 
