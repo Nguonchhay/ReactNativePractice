@@ -4,7 +4,7 @@ import {
     Text,
     View
 } from "react-native";
-import COLORS from "../constants/Color";
+import COLORS from "../../constants/Color";
 
 const PrimaryButton = ({ text, onPress }) => {
     return (

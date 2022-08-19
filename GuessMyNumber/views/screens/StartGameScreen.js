@@ -5,7 +5,7 @@ import {
     View,
     Alert
 } from "react-native";
-import PrimaryButton from "../../components/PrimaryButton";
+import PrimaryButton from "../../components/ui/PrimaryButton";
 import COLORS from '../../constants/Color';
 
 const StartGameScreen = ({ onSetScreen }) => {
