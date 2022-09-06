@@ -7,14 +7,21 @@ import {
 import { LinearGradient } from 'expo-linear-gradient';
 import StartGameScreen from './views/screens/StartGameScreen';
 import GameScreen from './views/screens/GameScreen';
+import GameOverScreen from './views/screens/GameOverScreen';
 import COLORS from './constants/Color';
 
 const App = () => {
   const [screen, setScreen] = useState('start');
+  const [inputNumber, setInputNumber] = useState('');
+  const [gameOver, setGameOver] = useState(false);
 
-  let renderScreen = <StartGameScreen onSetScreen={setScreen}/>
+  let renderScreen = <StartGameScreen inputNumber={inputNumber} onInputNumber={setInputNumber} onSetScreen={setScreen} onGameOver={setGameOver}/>
   if (screen === 'game') {
-    renderScreen = <GameScreen/>
+    renderScreen = <GameScreen userNumber={inputNumber} onGameOver={setGameOver} />
+  }
+
+  if (gameOver) {
+    renderScreen = <GameOverScreen />;
   }
 
   return (

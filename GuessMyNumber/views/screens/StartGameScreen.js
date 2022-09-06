@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { 
     StyleSheet,
+    Text,
     TextInput,
     View,
     Alert
@@ -8,11 +9,12 @@ import {
 import PrimaryButton from "../../components/ui/PrimaryButton";
 import COLORS from '../../constants/Color';
 
-const StartGameScreen = ({ onSetScreen }) => {
-    const [inputNumber, setInputNumber] = useState('');
+const StartGameScreen = ({ inputNumber, onInputNumber, onSetScreen, onGameOver }) => {
+    
 
     const onChangeInputNumber = (value) => {
-        setInputNumber(value)
+        onInputNumber(value);
+        onGameOver(false);
     }
 
     const onPressConfirm = () => {
@@ -34,6 +36,7 @@ const StartGameScreen = ({ onSetScreen }) => {
 
     return (
         <View style={styles.inputContainer}>
+            <Text style={styles.instructionText}>Enter a number</Text>
             <TextInput 
                 value={inputNumber}
                 onChangeText={onChangeInputNumber}
@@ -73,6 +76,11 @@ const styles = StyleSheet.create({
         },
         shadowRadius: 6,
         shadowOpacity: 0.3,
+    },
+    instructionText: {
+        color: COLORS.action500,
+        fontSize: 24,
+        fontWeight: 'bold',
     },
     numberInput: {
         height: 50,
