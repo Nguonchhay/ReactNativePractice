@@ -10,8 +10,8 @@ function Title({ children }) {
 const styles = StyleSheet.create({
     title: {
         fontSize: 24,
-        fontWeight: 'bold',
-        color: '#fff',
+        fontFamily: 'open-sans-bold',
+        color: COLORS.action500,
         marginTop: 25,
         textAlign: 'center',
         borderColor: '#fff',

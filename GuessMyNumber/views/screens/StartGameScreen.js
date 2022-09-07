@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import PrimaryButton from "../../components/ui/PrimaryButton";
 import COLORS from '../../constants/Color';
+import Title from '../../components/ui/Title';
 
 const StartGameScreen = ({ inputNumber, onInputNumber, onSetScreen, onGameOver }) => {
     
@@ -36,7 +37,7 @@ const StartGameScreen = ({ inputNumber, onInputNumber, onSetScreen, onGameOver }
 
     return (
         <View style={styles.inputContainer}>
-            <Text style={styles.instructionText}>Enter a number</Text>
+            <Title>Enter a number</Title>
             <TextInput 
                 value={inputNumber}
                 onChangeText={onChangeInputNumber}
@@ -49,10 +50,10 @@ const StartGameScreen = ({ inputNumber, onInputNumber, onSetScreen, onGameOver }
             />
             <View style={styles.buttonsContainer}>
                 <View style={styles.buttonContainer}>
-                    <PrimaryButton onPress={onPressReset} text="Reset" />
+                    <PrimaryButton onPress={onPressReset}>Reset</PrimaryButton>
                 </View>
                 <View style={styles.buttonContainer}>
-                    <PrimaryButton onPress={onPressConfirm} text="Confirm" />
+                    <PrimaryButton onPress={onPressConfirm}>Confirm</PrimaryButton>
                 </View>
             </View>
         </View>
@@ -76,11 +77,6 @@ const styles = StyleSheet.create({
         },
         shadowRadius: 6,
         shadowOpacity: 0.3,
-    },
-    instructionText: {
-        color: COLORS.action500,
-        fontSize: 24,
-        fontWeight: 'bold',
     },
     numberInput: {
         height: 50,

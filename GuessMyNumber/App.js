@@ -1,8 +1,11 @@
-import { useState } from 'react'; 
+import { useCallback, useEffect, useState } from 'react'; 
+import { useFonts } from 'expo-font';
+import * as SplashScreen from 'expo-splash-screen';
 import {
   ImageBackground,
   SafeAreaView,
-  StyleSheet
+  StyleSheet,
+  View
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import StartGameScreen from './views/screens/StartGameScreen';
@@ -14,6 +17,29 @@ const App = () => {
   const [screen, setScreen] = useState('start');
   const [inputNumber, setInputNumber] = useState('');
   const [gameOver, setGameOver] = useState(false);
+
+  const [ fontsLoaded ] = useFonts({
+    'open-sans': require('./assets/fonts/OpenSans-Regular.ttf'),
+    'open-sans-bold': require('./assets/fonts/OpenSans-Bold.ttf')
+  });
+
+  useEffect(() => {
+    async function prepare() {
+      await SplashScreen.preventAutoHideAsync();
+    }
+
+    prepare();
+  }, []);
+
+  const onLayoutRootView = useCallback(async () => {
+    if (fontsLoaded) {
+      SplashScreen.hideAsync();
+    }
+  }, [ fontsLoaded ]);
+
+  if (!fontsLoaded) {
+    return null;
+  }
 
   let renderScreen = <StartGameScreen inputNumber={inputNumber} onInputNumber={setInputNumber} onSetScreen={setScreen} onGameOver={setGameOver}/>
   if (screen === 'game') {
@@ -33,7 +59,9 @@ const App = () => {
         style={styles.rootScreen}
       >
         <SafeAreaView style={styles.rootScreen}>
-          {renderScreen}
+          <View onLayout={onLayoutRootView}>
+            {renderScreen}
+          </View>
         </SafeAreaView>
       </ImageBackground>  
     </LinearGradient>

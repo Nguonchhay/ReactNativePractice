@@ -6,14 +6,15 @@ import {
 } from "react-native";
 import COLORS from "../../constants/Color";
 
-const PrimaryButton = ({ text, onPress }) => {
+
+const PrimaryButton = ({ children, onPress }) => {
     return (
         <View style={styles.buttonOuterContainer}>
             <Pressable 
                 style={({pressed}) => pressed ? [styles.pressed, styles.buttonInnerContainer] : styles.buttonInnerContainer}
                 onPress={onPress} android_ripple={{ color: COLORS.primary600 }}
             >
-                <Text style={styles.buttonText}>{text}</Text>
+                <Text style={styles.buttonText}>{children}</Text>
             </Pressable>
         </View>
     );
