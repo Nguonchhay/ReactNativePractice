@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { 
-    Dimensions,
+    useWindowDimensions,
     StyleSheet,
     TextInput,
     View,
@@ -11,8 +11,9 @@ import COLORS from '../../constants/Color';
 import Title from '../../components/ui/Title';
 
 const StartGameScreen = ({ inputNumber, onInputNumber, onSetScreen, onGameOver }) => {
-    
 
+    const {width, height} = useWindowDimensions();
+    
     const onChangeInputNumber = (value) => {
         onInputNumber(value);
         onGameOver(false);
@@ -35,8 +36,10 @@ const StartGameScreen = ({ inputNumber, onInputNumber, onSetScreen, onGameOver }
         setInputNumber('');
     }
 
+    const marginTop = height < 380 ? 40 : 100;
+
     return (
-        <View style={styles.inputContainer}>
+        <View style={[styles.inputContainer, { marginTop }]}>
             <Title>Enter a number</Title>
             <TextInput 
                 value={inputNumber}
@@ -60,7 +63,6 @@ const StartGameScreen = ({ inputNumber, onInputNumber, onSetScreen, onGameOver }
     );
 };
 
-const deviceHeight = Dimensions.get('window').height;
 
 const styles = StyleSheet.create({
     inputContainer: {
@@ -70,7 +72,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         elevation: 4,
         marginHorizontal: 24,
-        marginTop: deviceHeight < 380 ? 40 : 100,
+        // marginTop: deviceHeight < 380 ? 40 : 100,
         padding: 15,
         shadowColor: '#000',
         shadowOffset: {
