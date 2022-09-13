@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { 
+    Dimensions,
     StyleSheet,
-    Text,
     TextInput,
     View,
     Alert
@@ -60,6 +60,8 @@ const StartGameScreen = ({ inputNumber, onInputNumber, onSetScreen, onGameOver }
     );
 };
 
+const deviceHeight = Dimensions.get('window').height;
+
 const styles = StyleSheet.create({
     inputContainer: {
         justifyContent: 'center',
@@ -68,7 +70,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         elevation: 4,
         marginHorizontal: 24,
-        marginTop: 100,
+        marginTop: deviceHeight < 380 ? 40 : 100,
         padding: 15,
         shadowColor: '#000',
         shadowOffset: {
