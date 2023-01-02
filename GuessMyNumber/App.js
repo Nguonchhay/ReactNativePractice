@@ -8,6 +8,7 @@ import {
   View
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+import { StatusBar } from 'expo-status-bar';
 import StartGameScreen from './views/screens/StartGameScreen';
 import GameScreen from './views/screens/GameScreen';
 import GameOverScreen from './views/screens/GameOverScreen';
@@ -51,20 +52,23 @@ const App = () => {
   }
 
   return (
-    <LinearGradient colors={[COLORS.primary700, COLORS.action500]} style={styles.rootScreen}>
-      <ImageBackground 
-        source={require('./assets/images/background.png')} 
-        resizeMode="cover" 
-        imageStyle={{opacity: 0.4}}
-        style={styles.rootScreen}
-      >
-        <SafeAreaView style={styles.rootScreen}>
-          <View onLayout={onLayoutRootView}>
-            {renderScreen}
-          </View>
-        </SafeAreaView>
-      </ImageBackground>  
-    </LinearGradient>
+    <>
+      <StatusBar style="light" />
+      <LinearGradient colors={[COLORS.primary700, COLORS.action500]} style={styles.rootScreen}>
+        <ImageBackground 
+          source={require('./assets/images/background.png')} 
+          resizeMode="cover" 
+          imageStyle={{opacity: 0.4}}
+          style={styles.rootScreen}
+        >
+          <SafeAreaView style={styles.rootScreen}>
+            <View onLayout={onLayoutRootView}>
+              {renderScreen}
+            </View>
+          </SafeAreaView>
+        </ImageBackground>  
+      </LinearGradient>
+    </>
   );
 };
 
