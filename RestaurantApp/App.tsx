@@ -1,21 +1,12 @@
-import React from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  Text,
-  View,
-} from 'react-native';
+import React, { useState } from 'react';
+import SplashScreen from './src/screens/SplashScreen';
+import HomeScreen from './src/screens/HomeScreen';
 
 function App(): JSX.Element {
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+
   return (
-    <SafeAreaView>
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic">
-        <View>
-          <Text>Welcome to Restaurant App</Text>
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+    isLoading ? <SplashScreen setIsLoading={setIsLoading} /> : <HomeScreen/>
   );
 }
 
