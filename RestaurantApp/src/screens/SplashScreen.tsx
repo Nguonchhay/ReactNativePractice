@@ -2,15 +2,9 @@ import React, { Dispatch, SetStateAction } from 'react';
 import { View } from 'react-native';
 import LottieView from 'lottie-react-native';
 
-interface SplashProps {
-    setIsLoading: Dispatch<SetStateAction<boolean>>
-}
+import { ROUTE_HOME } from './../../src/routes/Constants';
 
-export default function(
-    {
-        setIsLoading
-    }: SplashProps
-): JSX.Element {
+export default function({ navigation  } : any): JSX.Element {
     return (
         <View style={ {flex: 1, alignItems: 'center', margin: 0} }>
             <LottieView 
@@ -18,7 +12,7 @@ export default function(
                 autoPlay
                 loop={false}
                 resizeMode='cover'
-                onAnimationFinish={() => setIsLoading(false)}
+                onAnimationFinish={() => navigation.replace(ROUTE_HOME) }
             />
         </View>
     );
