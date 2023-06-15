@@ -2,9 +2,11 @@ import React, { Dispatch, SetStateAction } from 'react';
 import { View } from 'react-native';
 import LottieView from 'lottie-react-native';
 
-import { ROUTE_HOME } from './../../src/routes/Constants';
+import { ROUTE_HOME, ROUTE_ONBOARDING } from './../../src/routes/Constants';
 
 export default function({ navigation  } : any): JSX.Element {
+    const goNextScreen = ROUTE_ONBOARDING;
+
     return (
         <View style={ {flex: 1, alignItems: 'center', margin: 0} }>
             <LottieView 
@@ -12,7 +14,7 @@ export default function({ navigation  } : any): JSX.Element {
                 autoPlay
                 loop={false}
                 resizeMode='cover'
-                onAnimationFinish={() => navigation.replace(ROUTE_HOME) }
+                onAnimationFinish={() => navigation.replace(goNextScreen) }
             />
         </View>
     );
