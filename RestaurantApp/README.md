@@ -15,4 +15,4 @@ A complete food ordering from a specific restaurant
 * Create animation: https://lottiefiles.com/ 
 * App launcher: https://www.flaticon.com/, https://www.appicon.co/
 * State management: [Redux toolkit](https://redux-toolkit.js.org/introduction/getting-started)
-* UI library: [React Native Element](https://reactnativeelements.com/)react-native-image-slider-box)
+* UI library: [NativeBase](https://docs.nativebase.io/)

@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import LottieView from 'lottie-react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import { ROUTE_HOME, ROUTE_ONBOARDING, STORAGE_ONBOARDING_KEY } from './../../src/routes/Constants';
+import { ROUTE_HOME, ROUTE_ONBOARDING, STORAGE_ONBOARDING_KEY } from '../configs/Constants';
 
 
 export default function({ navigation  } : any): JSX.Element {

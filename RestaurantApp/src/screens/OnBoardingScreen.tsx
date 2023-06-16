@@ -1,11 +1,11 @@
 import React, { useState, useRef } from 'react';
 import { View, StyleSheet, FlatList, Animated } from 'react-native';
-import { Button } from '@rneui/themed';
+import { Button } from 'native-base';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import OnBoardingItem from '../components/OnBoardingItem';
 import OnBoardingPaginator from '../components/OnBoardingPaginator';
-import { ROUTE_HOME, STORAGE_ONBOARDING_KEY } from '../routes/Constants';
+import { ROUTE_HOME, STORAGE_ONBOARDING_KEY } from '../configs/Constants';
 
 interface SlideDataType {
     id: number,
