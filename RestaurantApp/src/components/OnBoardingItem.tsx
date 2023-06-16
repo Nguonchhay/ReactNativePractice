@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, useWindowDimensions } from 'react-native';
 
+
 interface OnBoardingItemProps {
     item: any
 }
@@ -21,7 +22,7 @@ const OnBoardingItem = (
             />
             <View style={styles.content}>
                 <Text style={styles.title}>{item.title}</Text>
-                <Text style={styles.description}>{item.descripton}</Text>
+                <Text style={styles.description}>{item.description}</Text>
             </View>
         </View>
     )

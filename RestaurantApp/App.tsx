@@ -17,7 +17,7 @@ import store from './src/redux/store';
 
 const Stack = createNativeStackNavigator();
 
-function App(): JSX.Element {
+const App = (): JSX.Element => {
   return (
     <Provider store={store}>
       <SafeAreaProvider>

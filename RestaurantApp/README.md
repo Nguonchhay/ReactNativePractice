@@ -6,7 +6,7 @@ A complete food ordering from a specific restaurant
 ### Features in App
 
 * Splash screen: using tool[Lottie Aniation] and libraries[lottie-react-native, react-native-reanimated]
-* Onboading screen: build from scratch (https://www.youtube.com/watch?v=r2NJJye0XnM)
+* Onboading screen: [build from scratch](https://www.youtube.com/watch?v=r2NJJye0XnM)
 
 
 ### Resources
